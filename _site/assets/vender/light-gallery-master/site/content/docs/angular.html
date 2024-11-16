@@ -1,0 +1,181 @@
+<p><a class="btn btn-outline-primary" href="https://stackblitz.com/edit/lightgallery-angular" target="_blank">StackBlitz
+Demo</a></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Follow the below steps to use lightGallery angular component in your
+application. Angular component is part of the main lightGallery package on NPM.
+You can import it using the following way</p>
+
+<ul>
+  <li>
+    <p>Install lightGallery via NPM</p>
+
+    <p>npm install lightgallery</p>
+  </li>
+  <li>
+    <p>Import lightGallery module</p>
+  </li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// For angular version 14</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">LightgalleryModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/angular</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// lightGallery supports the last 4 major version of Angular,</span>
+<span class="c1">// if you are using older versions of angular, you can import the respective versions</span>
+<span class="c1">// For example, if you are using Angular version 13, you can import it using</span>
+<span class="c1">// import { LightgalleryModule } from 'lightgallery/angular/13';</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+    <span class="na">imports</span><span class="p">:</span> <span class="p">[</span><span class="nx">LightgalleryModule</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nc">AppModule</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p>Since, <a href="https://github.com/sachinchoolur/lightGallery/releases/tag/2.2.0">version 2.2.0</a>, lightGallery supports the last 4 major versions of Angular.
+If you are using an older version of Angular, please choose the respective version.</p>
+
+<p>For example, if you are using Angular version 13, you can import it by suffixing the version number as shown below</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">LightgalleryModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/angular/13</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>import styles in styles.scss</li>
+</ul>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s1">'~lightgallery/scss/lightgallery'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>template</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;lightgallery</span> <span class="na">[settings]=</span><span class="s">"settings"</span> <span class="na">[onInit]=</span><span class="s">"onInit"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"img1"</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"img2"</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/lightgallery&gt;</span>
+</code></pre></div></div>
+
+<h2 id="inputs">Inputs</h2>
+
+<p>All lightGallery settings can be passed to angular component via settings input.
+Additionally, you can use lifecycle hook methods listed below to hook into
+lightGalley component lifecycle. Almost every method passes a detail object
+which holds useful plugin data</p>
+
+<h4 id="usage-example">usage example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+    <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">gallery</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">template</span><span class="p">:</span> <span class="s2">`
+        &lt;lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide"&gt;
+            &lt;a href="img/img1.jpg"&gt;
+                &lt;img alt="img1" src="img/thumb1.jpg" /&gt;
+            &lt;/a&gt;
+            &lt;a href="img/img1.jpg"&gt;
+                &lt;img alt="img2" src="img/thumb1.jpg" /&gt;
+            &lt;/a&gt;
+        &lt;/lightgallery&gt;
+    `</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nc">AppComponent</span> <span class="p">{</span>
+    <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">counter</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="nx">lgZoom</span><span class="p">],</span>
+    <span class="p">};</span>
+    <span class="nx">onBeforeSlide</span> <span class="o">=</span> <span class="p">(</span><span class="nx">detail</span><span class="p">:</span> <span class="nx">BeforeSlideDetail</span><span class="p">):</span> <span class="k">void</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">{</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">detail</span><span class="p">;</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span><span class="p">);</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="event-docs-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+<h2 id="updating-slides">Updating slides</h2>
+
+<p>lightGallery does not update slides automatically due to performance reasons.
+But you can easily update slides whenever needed by calling <code class="language-plaintext highlighter-rouge">refresh</code> method.</p>
+
+<p><a class="btn btn-outline-primary" href="https://stackblitz.com/edit/lightgallery-angular-update-slides" target="_blank">StackBlitz
+Demo</a></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+    <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">my-app</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">templateUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./app.component.html</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">./app.component.css</span><span class="dl">'</span><span class="p">],</span>
+    <span class="na">encapsulation</span><span class="p">:</span> <span class="nx">ViewEncapsulation</span><span class="p">.</span><span class="nx">None</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nc">AppComponent</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="nx">lightGallery</span><span class="o">!</span><span class="p">:</span> <span class="nx">LightGallery</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nx">needRefresh</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nf">ngAfterViewChecked</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="k">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">needRefresh</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">lightGallery</span><span class="p">.</span><span class="nf">refresh</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">needRefresh</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">title</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">angular-demo</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">counter</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="nx">lgZoom</span><span class="p">],</span>
+    <span class="p">};</span>
+    <span class="nx">items</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-1.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-1.jpg</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-2.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-2.jpg</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">];</span>
+    <span class="nx">onInit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">detail</span><span class="p">:</span> <span class="nx">InitDetail</span><span class="p">):</span> <span class="k">void</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">lightGallery</span> <span class="o">=</span> <span class="nx">detail</span><span class="p">.</span><span class="nx">instance</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">addImage</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-5.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-5.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">];</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">needRefresh</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>

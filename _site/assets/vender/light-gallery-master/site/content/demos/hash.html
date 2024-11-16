@@ -1,0 +1,54 @@
+<h4 id="demo">Demo</h4>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery-hash-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">gallery-hash-demo</span><span class="dl">'</span><span class="p">));</span>
+
+<span class="c1">// if You have multiple galleries on same page you have to set unique id for each gallery.</span>
+<span class="cm">/*
+lightGallery(document.getElementById('gallery-hash-demo-2'), {
+    galleryId: 2
+});
+lightGallery(document.getElementById('gallery-hash-demo-3'), {
+    galleryId: 3
+});
+*/</span>
+</code></pre></div></div>
+
+<h4 id="custom-slide-name">Custom slide name</h4>
+
+<p>You can provide custom slide names for each slide by providing slide name via
+<code class="language-plaintext highlighter-rouge">data-slide-name</code> attribute or <code class="language-plaintext highlighter-rouge">slideName</code> if you are using dynamic mode.</p>
+
+<h5 id="html-structure-1">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery-hash-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span> <span class="na">data-slide-name=</span><span class="s">"fading-light"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span> <span class="na">data-slide-name=</span><span class="s">"Bowness Bay"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript-1">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">gallery-hash-demo</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">customSlideName</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>

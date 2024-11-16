@@ -1,0 +1,134 @@
+<h4 id="demo">Demo</h4>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"lg-share-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-pinterest-text=</span><span class="s">"Pin it1"</span>
+        <span class="na">data-tweet-text=</span><span class="s">"lightGallery slide  1"</span>
+        <span class="na">href=</span><span class="s">"img/img1.jpg"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-pinterest-text=</span><span class="s">"Pin it2"</span>
+        <span class="na">data-tweet-text=</span><span class="s">"lightGallery slide  2"</span>
+        <span class="na">href=</span><span class="s">"img/img2.jpg"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Optionally you can pass separate url for each images instead of current browser
+url.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery-share-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-pinterest-text=</span><span class="s">"Pin it1"</span>
+        <span class="na">data-tweet-text=</span><span class="s">"lightGallery slide  1"</span>
+        <span class="na">data-facebook-share-url=</span><span class="s">"share/facebook-share-url"</span>
+        <span class="na">data-twitter-share-url=</span><span class="s">"share/twitter-share-url"</span>
+        <span class="na">data-pinterest-share-url=</span><span class="s">"share/pinterest-share-url"</span>
+        <span class="na">href=</span><span class="s">"img/img1.jpg"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-pinterest-text=</span><span class="s">"Pin it1"</span>
+        <span class="na">data-tweet-text=</span><span class="s">"lightGallery slide  1"</span>
+        <span class="na">data-facebook-share-url=</span><span class="s">"share/facebook-share-url"</span>
+        <span class="na">data-twitter-share-url=</span><span class="s">"share/twitter-share-url"</span>
+        <span class="na">data-pinterest-share-url=</span><span class="s">"share/pinterest-share-url"</span>
+        <span class="na">href=</span><span class="s">"img/img2.jpg"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">gallery-share-demo</span><span class="dl">'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="add-new-share-options">Add new share options</h4>
+
+<p>By default, lightGallery supports sharing on Facebook, Twitter and pinterest.
+Missing something? you can easily add your own share buttons in lightGallery.</p>
+
+<p>Let’s see how we can add
+<a href="https://www.reddit.com/" target="_blank">reddit</a> share button.</p>
+
+<div class="codepen-demo">
+    <a target="_blank" href="https://codepen.io/sachinchoolur/pen/mdWPZRq">View on CodePen</a>
+</div>
+
+<p>To share a post on reddit, you need to create the following url structure</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://reddit.com/submit?url={url}&amp;title={title}
+</code></pre></div></div>
+
+<p><strong>Step 1 -</strong></p>
+
+<p>We need to fetch title attribute from each slide. lightGallery allows you to
+fetch custom props from the selector element by passing the prop name via
+extraProps settings</p>
+
+<h4 id="html">HTML</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery-share-reddit-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">data-reddit-title=</span><span class="s">"slide title"</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">data-reddit-title=</span><span class="s">"slide title - 2"</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript-1">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">gallery-share-reddit-demo</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">extraProps</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">redditTitle</span><span class="dl">'</span><span class="p">],</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><strong>Step 2 -</strong></p>
+
+<p>Using setting <code class="language-plaintext highlighter-rouge">additionalShareOptions</code> provide the required data to lightGallery
+share plugin</p>
+
+<h4 id="javascript-2">JavaScript</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">gallery-share-reddit-demo</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">extraProps</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">redditTitle</span><span class="dl">'</span><span class="p">],</span>
+    <span class="na">additionalShareOptions</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="c1">// Selector for the anchor tag inside share list item</span>
+            <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">.lg-share-reddit</span><span class="dl">'</span><span class="p">,</span>
+
+            <span class="c1">// HTML to be appended to the share dropdown menu</span>
+            <span class="na">dropdownHTML</span><span class="p">:</span>
+                <span class="dl">'</span><span class="s1">&lt;li class="lg-share-item-reddit"&gt;&lt;a class="lg-share-reddit" target="_blank"&gt;&lt;svg class="lg-reddit"&gt;...&lt;/svg&gt;&lt;span class="lg-dropdown-text"&gt;Reddit&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span><span class="dl">'</span><span class="p">,</span>
+
+            <span class="c1">// Construct url</span>
+            <span class="na">generateLink</span><span class="p">:</span> <span class="p">(</span><span class="nx">galleryItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nf">encodeURIComponent</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">);</span>
+
+                <span class="c1">// The prop data-reddit-title is converted to redditTitle and added to the gallery item</span>
+                <span class="kd">const</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">galleryItem</span><span class="p">.</span><span class="nx">redditTitle</span><span class="p">;</span>
+                <span class="kd">const</span> <span class="nx">redditShareLink</span> <span class="o">=</span> <span class="s2">`//reddit.com/submit?url=</span><span class="p">${</span><span class="nx">url</span><span class="p">}</span><span class="s2">&amp;title=</span><span class="p">${</span><span class="nx">title</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nx">redditShareLink</span><span class="p">;</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>That’s it. Now you can see additional reddit button in the share dropdown menu</p>
+
+<p>Reference - https://github.com/bradvin/social-share-urls</p>

@@ -1,0 +1,74 @@
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"anchor-tag"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">anchor-tag</span><span class="dl">'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<hr />
+
+<h5 id="html-structure-1">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"ul-li"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-src=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-src=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    ...
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript-1">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">ul-li</span><span class="dl">'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<hr />
+
+<h5 id="html-structure-2">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"selector1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Gallery title<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span> <span class="na">data-src=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span> <span class="na">data-src=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript-2">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">selector1</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">.item</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<hr />
+
+<h5 id="html-structure-3">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"selector2"</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span> Click to open <span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript-3">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">selector2</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">this</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>

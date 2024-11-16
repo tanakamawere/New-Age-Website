@@ -1,0 +1,100 @@
+<div>
+<button type="button" class="btn btn-success" id="dynamic-gallery-demo">Launch
+Gallery</button>
+
+
+
+
+
+</div>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"dynamic-gallery-demo"</span><span class="nt">&gt;</span>Open Gallery<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">$dynamicGallery</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">dynamic-gallery-demo</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">dynamicGallery</span> <span class="o">=</span> <span class="nf">lightGallery</span><span class="p">(</span><span class="nx">$dynamicGallery</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">dynamic</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">dynamicEl</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/1.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/thumb-1.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">subHtml</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;h4&gt;Image 1 title&lt;/h4&gt;&lt;p&gt;Image 1 descriptions.&lt;/p&gt;</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/2.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/thumb-2.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">subHtml</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;h4&gt;Image 2 title&lt;/h4&gt;&lt;p&gt;Image 2 descriptions.&lt;/p&gt;</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/3.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/thumb-3.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">subHtml</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;h4&gt;Image 3 title&lt;/h4&gt;&lt;p&gt;Image 3 descriptions.&lt;/p&gt;</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">});</span>
+<span class="nx">$dynamicGallery</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Starts with third item.(Optional).</span>
+    <span class="c1">// This is useful if you want use dynamic mode with</span>
+    <span class="c1">// custom thumbnails (thumbnails outside gallery),</span>
+    <span class="nx">dynamicGallery</span><span class="p">.</span><span class="nf">openGallery</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="load-more-slides-dynamically">Load more slides dynamically</h3>
+
+<p>You can add or remove slides of a dynamic gallery by passing the updated
+dynamicEl list via refresh method</p>
+
+<p><button type="button" class="btn btn-success" id="dynamic-gallery-demo-load-more"> Launch Gallery with more images </button></p>
+
+<h5 id="html-structure-1">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span>
+    <span class="na">type=</span><span class="s">"button"</span>
+    <span class="na">class=</span><span class="s">"btn btn-success"</span>
+    <span class="na">id=</span><span class="s">"dynamic-gallery-demo-load-more"</span>
+<span class="nt">&gt;</span>
+    Launch Gallery with additional images
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript-1">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span>
+    <span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">dynamic-gallery-demo-load-more</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">newItems</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/4.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/thumb-4.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">subHtml</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;h4&gt;Image 4 title&lt;/h4&gt;&lt;p&gt;Image 4 descriptions.&lt;/p&gt;</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/5.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/thumb-5.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">subHtml</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;h4&gt;Image 5 title&lt;/h4&gt;&lt;p&gt;Image 5 descriptions.&lt;/p&gt;</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">];</span>
+        <span class="kd">const</span> <span class="nx">updatedDynamicElements</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">dynamicEl</span><span class="p">,</span> <span class="p">...</span><span class="nx">newItems</span><span class="p">];</span>
+        <span class="nx">dynamicGallery</span><span class="p">.</span><span class="nf">refresh</span><span class="p">(</span><span class="nx">updatedDynamicElements</span><span class="p">);</span>
+
+        <span class="c1">// To open gallery after updating slides,</span>
+        <span class="nx">dynamicGallery</span><span class="p">.</span><span class="nf">openGallery</span><span class="p">();</span>
+    <span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="load-more-slides-with-images">Load more slides with images</h3>
+
+<p>You can use the dynamic mode to display a few thumbnails and show all the images by clicking on a button.</p>
+
+<div class="dynamic-mode-images">
+    
+    <button type="button" class="btn btn-dynamic" id="dynamic-mode-images">
+        See 15 photos
+    </button>
+</div>
+

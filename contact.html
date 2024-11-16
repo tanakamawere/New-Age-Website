@@ -1,0 +1,108 @@
+---
+layout: default
+title: "Contact | New Age Motors"
+---
+
+<!-- Page loading spinner -->
+<div class="page-loading active">
+    <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+    </div>
+</div>
+<div class="bg-homepage d-flex align-items-center flex-column">
+    <!-- Navbar -->
+    <div class="car-serive-nav shadow w-100">
+         {% include navbar.html %}
+    </div>
+    <!-- header -->
+    <div class="py-5">
+        <div class="container py-5">
+            <div class="row pb-5 mb-5 align-items-center">
+                <div class="mb-5 pb-5">
+                    <div class="text-center text-white pb-5 mb-5">
+                        <h1 class="fw-bold display-4 pb-2" data-aos="fade-up" data-aos-duration="700">Contact Us</h1>
+                        <nav aria-label="breadcrumb" class="mb-5 pb-5">
+                            <ol class="breadcrumb d-flex align-items-center justify-content-center gap-1" data-aos="fade-up" data-aos-duration="800">
+                                <li class="breadcrumb-item small"><a href="index.html" class="text-white-50">HOME</a></li>
+                                <li><i class="ri-arrow-right-s-line"></i></li>
+                                <li class="breadcrumb-item small text-white active" aria-current="page">CONTACT</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- location and contact information -->
+<div class="pb-5 location">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 bg-white shadow-sm p-0">
+                <div class="row">
+                    <div class="col-12" data-aos="fade-up" data-aos-duration="800">
+                        <div class="ratio ratio-21x9" style="--bs-aspect-ratio: 30%;">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193596.8875347362!2d-74.29147094037386!3d40.69706870159441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1700806515007!5m2!1sen!2sin"
+                                class="border-0"
+                                allowfullscreen
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 p-5">
+                    <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="700">
+                        <div class="text-center">
+                            <i class="ri-map-pin-2-line ri-2x text-primary"></i>
+                            <div class="pt-3">
+                                <h5 class="fw-bold">Physical Address​</h5>
+                                <p class="text-secondary-emphasis mb-0">
+                                    {{ site.address }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="800">
+                        <div class="text-center">
+                            <i class="ri-phone-line ri-2x text-primary"></i>
+                            <div class="pt-3">
+                                <h5 class="fw-bold">Phone Numbers​</h5>
+                                <p class="text-secondary-emphasis mb-0">
+                                    {{ site.phone }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="900">
+                        <div class="text-center">
+                            <i class="ri-mail-line ri-2x text-primary"></i>
+                            <div class="pt-3">
+                                <h5 class="fw-bold">Email Addresss​</h5>
+                                <p class="text-secondary-emphasis mb-0">
+                                    {{ site.email }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="text-center">
+                            <i class="ri-time-line ri-2x text-primary"></i>
+                            <div class="pt-3">
+                                <h5 class="fw-bold">Open Hours​</h5>
+                                <p class="text-secondary-emphasis mb-0">
+                                    Monday-Saturday 8 am – 6pm<br>
+                                    Sunday 11am – 4pm
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonials -->
+{% include testimonials.html %}

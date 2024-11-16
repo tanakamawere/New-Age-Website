@@ -1,0 +1,216 @@
+<div class="alert alert-danger" role="alert">
+    lightGallery Vue.js component works only with Vue.js version 3 and above. For vue.js 2 please follow this <a target="_blank" href="https://github.com/sachinchoolur/lightgallery.js/issues/60#issuecomment-422259277">link</a>
+</div>
+
+<p><a class="btn btn-outline-primary" href="https://stackblitz.com/edit/lightgallery-vue" target="_blank">StackBlitz
+Demo</a></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Follow the below steps to use lightGallery vue component in your application.
+Vue component is part of the main lightGallery package on NPM. You can import it
+using the following way</p>
+
+<ul>
+  <li>
+    <p>Install lightGallery via NPM</p>
+
+    <p>npm install lightgallery</p>
+  </li>
+  <li>
+    <p>Import vue component and styles</p>
+  </li>
+</ul>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;lightgallery</span>
+        <span class="na">:settings=</span><span class="s">"</span>{ speed: 500, plugins: plugins }"
+        :onInit="onInit"
+        :onBeforeSlide="onBeforeSlide"
+    &gt;
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"img1"</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"img2"</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        ...
+    <span class="nt">&lt;/lightgallery&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lang=</span><span class="s">"ts"</span><span class="nt">&gt;</span>
+    <span class="k">import</span> <span class="p">{</span> <span class="nx">Options</span><span class="p">,</span> <span class="nx">Vue</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue-class-component</span><span class="dl">'</span><span class="p">;</span>
+    <span class="k">import</span> <span class="nx">Lightgallery</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/vue</span><span class="dl">'</span><span class="p">;</span>
+    <span class="k">import</span> <span class="nx">lgThumbnail</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/plugins/thumbnail</span><span class="dl">'</span><span class="p">;</span>
+    <span class="k">import</span> <span class="nx">lgZoom</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/plugins/zoom</span><span class="dl">'</span><span class="p">;</span>
+
+    <span class="c1">// If you are using scss you can skip the css imports below and use scss instead</span>
+    <span class="k">import</span> <span class="nx">styles</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/scss/lightgallery.scss</span><span class="dl">'</span><span class="p">;</span>
+
+    <span class="p">@</span><span class="nd">Options</span><span class="p">({</span>
+        <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nx">Lightgallery</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="na">data</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+            <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="nx">lgThumbnail</span><span class="p">,</span> <span class="nx">lgZoom</span><span class="p">],</span>
+        <span class="p">}),</span>
+        <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">onInit</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">lightGallery has been initialized</span><span class="dl">'</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="na">onBeforeSlide</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">calling before slide</span><span class="dl">'</span><span class="p">);</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">})</span>
+    <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nc">App</span> <span class="kd">extends</span> <span class="nc">Vue</span> <span class="p">{}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="nt">&lt;</span><span class="k">style</span> <span class="na">lang=</span><span class="s">"css"</span> <span class="na">scoped</span><span class="nt">&gt;</span>
+    <span class="k">@import</span> <span class="s2">'lightgallery/css/lightgallery.css'</span><span class="p">;</span>
+    <span class="k">@import</span> <span class="s2">'lightgallery/css/lg-thumbnail.css'</span><span class="p">;</span>
+    <span class="k">@import</span> <span class="s2">'lightgallery/css/lg-zoom.css'</span><span class="p">;</span>
+<span class="nt">&lt;/</span><span class="k">style</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="props-and-methods">Props and methods</h2>
+
+<p>All lightGallery settings can be passed to vue component via settings prop.
+Additionally, you can use lifecycle hook methods listed below to hook into
+lightGalley component lifecycle. Almost every method passes a detail object
+which holds useful plugin data</p>
+
+<h4 id="usage-example">usage example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">lightgallery</span>
+        <span class="p">:</span><span class="nx">onBeforeSlide</span><span class="o">=</span><span class="dl">"</span><span class="s2">onBeforeSlide</span><span class="dl">"</span>
+    <span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">img/img1.jpg</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">alt</span><span class="o">=</span><span class="dl">"</span><span class="s2">img1</span><span class="dl">"</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">img/thumb1.jpg</span><span class="dl">"</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">img/img2.jpg</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">alt</span><span class="o">=</span><span class="dl">"</span><span class="s2">img2</span><span class="dl">"</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">img/thumb2.jpg</span><span class="dl">"</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>        <span class="p">...</span>
+    <span class="o">&lt;</span><span class="sr">/lightgallery</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
+</span><span class="p">@</span><span class="nd">Options</span><span class="p">({</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">Lightgallery</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">onBeforeSlide</span><span class="p">:</span> <span class="p">(</span><span class="nx">detail</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="p">{</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">detail</span><span class="p">;</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span><span class="p">);</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nc">App</span> <span class="kd">extends</span> <span class="nc">Vue</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<div class="event-docs-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+<h2 id="updating-slides">Updating slides</h2>
+
+<p>lightGallery does not update slides automatically due to performance reasons.
+But you can easily update slides whenever needed by calling <code class="language-plaintext highlighter-rouge">refresh</code> method.</p>
+
+<p><a class="btn btn-outline-primary" href="https://stackblitz.com/edit/lightgallery-vue-update-slides" target="_blank">StackBlitz
+Demo</a></p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">v</span><span class="o">-</span><span class="nx">on</span><span class="p">:</span><span class="nx">click</span><span class="o">=</span><span class="dl">"</span><span class="s2">updateSlides</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="k">new</span> <span class="nx">image</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">lightgallery</span>
+        <span class="p">:</span><span class="nx">settings</span><span class="o">=</span><span class="dl">"</span><span class="s2">{ speed: 500, plugins: plugins }</span><span class="dl">"</span>
+        <span class="p">:</span><span class="nx">onInit</span><span class="o">=</span><span class="dl">"</span><span class="s2">onInit</span><span class="dl">"</span>
+        <span class="p">:</span><span class="nx">onBeforeSlide</span><span class="o">=</span><span class="dl">"</span><span class="s2">onBeforeSlide</span><span class="dl">"</span>
+    <span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">a</span>
+            <span class="nx">v</span><span class="o">-</span><span class="k">for</span><span class="o">=</span><span class="dl">"</span><span class="s2">item in items</span><span class="dl">"</span>
+            <span class="p">:</span><span class="nx">key</span><span class="o">=</span><span class="dl">"</span><span class="s2">item.id</span><span class="dl">"</span>
+            <span class="p">:</span><span class="nx">data</span><span class="o">-</span><span class="nx">lg</span><span class="o">-</span><span class="nx">size</span><span class="o">=</span><span class="dl">"</span><span class="s2">item.size</span><span class="dl">"</span>
+            <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">gallery-item</span><span class="dl">"</span>
+            <span class="p">:</span><span class="nx">data</span><span class="o">-</span><span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">item.src</span><span class="dl">"</span>
+        <span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">img-responsive</span><span class="dl">"</span> <span class="p">:</span><span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">item.thumb</span><span class="dl">"</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/lightgallery</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="k">import</span> <span class="nx">Lightgallery</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/vue</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">lgZoom</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/plugins/zoom</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">lightGallery</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">App</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">Lightgallery</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nf">items</span><span class="p">(</span><span class="nx">newVal</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nf">$nextTick</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">lightGallery</span><span class="p">.</span><span class="nf">refresh</span><span class="p">();</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">({</span>
+        <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="nx">lgZoom</span><span class="p">],</span>
+        <span class="na">items</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-1.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-1.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-2.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-2.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">],</span>
+    <span class="p">}),</span>
+    <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">onInit</span><span class="p">:</span> <span class="p">(</span><span class="nx">detail</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">lightGallery</span> <span class="o">=</span> <span class="nx">detail</span><span class="p">.</span><span class="nx">instance</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="na">updateSlides</span><span class="p">:</span> <span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">,</span>
+                <span class="p">{</span>
+                    <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">,</span>
+                    <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+                    <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-5.jpg</span><span class="dl">'</span><span class="p">,</span>
+                    <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-5.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">];</span>
+            <span class="nx">lightGallery</span><span class="p">.</span><span class="nf">refresh</span><span class="p">();</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>
+</code></pre></div></div>

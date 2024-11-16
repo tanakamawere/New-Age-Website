@@ -1,0 +1,77 @@
+<h4 id="demo">Demo</h4>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery-mixed-content-demo"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Image --&gt;</span>
+
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+
+    <span class="c">&lt;!-- YouTube Video ---&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-lg-size=</span><span class="s">"1280-720"</span>
+        <span class="na">data-src=</span><span class="s">"//www.youtube.com/watch?v=EIUJfXk3_3w"</span>
+        <span class="na">data-poster=</span><span class="s">"https://img.youtube.com/vi/EIUJfXk3_3w/maxresdefault.jpg"</span>
+        <span class="na">data-sub-html=</span><span class="s">"&lt;h4&gt;Puffin Hunts Fish To Feed Puffling | Blue Planet II | BBC Earth&lt;/h4&gt;&lt;p&gt;On the heels of Planet Earth II's record-breaking Emmy nominations, BBC America presents stunning visual soundscapes from the series' amazing habitats.&lt;/p&gt;"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span>
+            <span class="na">width=</span><span class="s">"300"</span>
+            <span class="na">height=</span><span class="s">"100"</span>
+            <span class="na">class=</span><span class="s">"img-responsive"</span>
+            <span class="na">src=</span><span class="s">"https://img.youtube.com/vi/EIUJfXk3_3w/maxresdefault.jpg"</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+
+    <span class="c">&lt;!-- VImeo Video ---&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-lg-size=</span><span class="s">"1280-720"</span>
+        <span class="na">data-src=</span><span class="s">"//vimeo.com/112836958"</span>
+        <span class="na">data-poster=</span><span class="s">"/images/demo/vimeo-video-poster.jpg"</span>
+        <span class="na">data-sub-html=</span><span class="s">"&lt;h4&gt;Nature&lt;/h4&gt;&lt;p&gt;Video by &lt;a target='_blank' href='https://vimeo.com/charliekaye'&gt;Charlie Kaye&lt;/a&gt;&lt;/p&gt;"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span>
+            <span class="na">width=</span><span class="s">"300"</span>
+            <span class="na">height=</span><span class="s">"100"</span>
+            <span class="na">class=</span><span class="s">"img-responsive"</span>
+            <span class="na">src=</span><span class="s">"/images/demo/vimeo-video-poster.jpg"</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+
+    <span class="c">&lt;!-- Wistia Video ---&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-lg-size=</span><span class="s">"1280-720"</span>
+        <span class="na">data-src=</span><span class="s">"https://private-sharing.wistia.com/medias/mwhrulrucj"</span>
+        <span class="na">data-poster=</span><span class="s">"/images/demo/wistia-video-poster.jpeg"</span>
+        <span class="na">data-sub-html=</span><span class="s">"&lt;h4&gt;Thank You!&lt;/h4&gt;&lt;p&gt; Sample Wistia video &lt;/p&gt;"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span>
+            <span class="na">width=</span><span class="s">"300"</span>
+            <span class="na">height=</span><span class="s">"100"</span>
+            <span class="na">class=</span><span class="s">"img-responsive"</span>
+            <span class="na">src=</span><span class="s">"/images/demo/wistia-video-poster.jpeg"</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+
+    <span class="c">&lt;!-- HTML5 Video ---&gt;</span>
+    <span class="nt">&lt;a</span>
+        <span class="na">data-lg-size=</span><span class="s">"1280-720"</span>
+        <span class="na">data-video=</span><span class="s">'{"source": [{"src":"/videos/video1.mp4", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}'</span>
+        <span class="na">data-poster=</span><span class="s">"/images/demo/html5-video-poster.jpg"</span>
+        <span class="na">data-sub-html=</span><span class="s">"&lt;h4&gt;'Peck Pocketed' by Kevin Herron | Disney Favorite&lt;/h4&gt;"</span>
+    <span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span>
+            <span class="na">width=</span><span class="s">"300"</span>
+            <span class="na">height=</span><span class="s">"100"</span>
+            <span class="na">class=</span><span class="s">"img-responsive"</span>
+            <span class="na">src=</span><span class="s">"/images/demo/html5-video-poster.jpg"</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">gallery-mixed-content-demo</span><span class="dl">'</span><span class="p">));</span>
+</code></pre></div></div>

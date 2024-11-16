@@ -1,0 +1,52 @@
+<p>Let’s see how we integrate custom next and previous buttons instead of built-in
+buttons using lightGallery methods.</p>
+
+<h4 id="demo">Demo</h4>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery-methods-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">$lgGalleryMethodsDemo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">gallery-methods-demo</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">methodsInstance</span><span class="p">;</span>
+<span class="nx">$lgGalleryMethodsDemo</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">lgAfterOpen</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">previousBtn</span> <span class="o">=</span>
+        <span class="dl">'</span><span class="s1">&lt;button type="button" aria-label="Previous slide" class="lg-prev"&gt; Prev Slide &lt;/button&gt;</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">nextBtn</span> <span class="o">=</span>
+        <span class="dl">'</span><span class="s1">&lt;button type="button" aria-label="Next slide" class="lg-next"&gt; Next Slide &lt;/button&gt;</span><span class="dl">'</span><span class="p">;</span>
+
+    <span class="c1">// Append custom buttons to the lightGallery container</span>
+    <span class="kd">const</span> <span class="nx">$lgContainer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.lg-content</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">$lgContainer</span><span class="p">.</span><span class="nf">insertAdjacentHTML</span><span class="p">(</span><span class="dl">'</span><span class="s1">beforeend</span><span class="dl">'</span><span class="p">,</span> <span class="nx">nextBtn</span><span class="p">);</span>
+    <span class="nx">$lgContainer</span><span class="p">.</span><span class="nf">insertAdjacentHTML</span><span class="p">(</span><span class="dl">'</span><span class="s1">beforeend</span><span class="dl">'</span><span class="p">,</span> <span class="nx">previousBtn</span><span class="p">);</span>
+
+    <span class="c1">// use lightGallery goToNextSlide and goToPrevSlide methods to</span>
+    <span class="c1">// navigate to respective slides</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.lg-next</span><span class="dl">'</span><span class="p">).</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">methodsInstance</span><span class="p">.</span><span class="nf">goToNextSlide</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.lg-prev</span><span class="dl">'</span><span class="p">).</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">methodsInstance</span><span class="p">.</span><span class="nf">goToPrevSlide</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// Store the instance in a variable</span>
+<span class="nx">methodsInstance</span> <span class="o">=</span> <span class="nf">lightGallery</span><span class="p">(</span><span class="nx">$lgGalleryMethodsDemo</span><span class="p">,</span> <span class="p">{</span>
+    <span class="c1">// Add custom class for button styling</span>
+    <span class="na">addClass</span><span class="p">:</span> <span class="dl">'</span><span class="s1">lg-methods-demo</span><span class="dl">'</span><span class="p">,</span>
+
+    <span class="c1">// Disable default controls</span>
+    <span class="na">controls</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>

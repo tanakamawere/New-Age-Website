@@ -1,0 +1,74 @@
+<h2 id="build-process">Build process</h2>
+
+<p>You can skip this step is you are not using lightGallery build system to create
+lightGallery plugins</p>
+
+<ul>
+  <li>Add the new plugin configuration to the <code class="language-plaintext highlighter-rouge">plugins-config-rollup.json</code> file in
+the following format</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">autoplay</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">folder</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">plugins/autoplay/</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">fileName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">lg-autoplay</span><span class="dl">"</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<p>This helps lightGallery to generate required rollup config files for your new
+plugin</p>
+
+<ul>
+  <li>Navigate to <code class="language-plaintext highlighter-rouge">src/plugins</code> folder</li>
+  <li>Create plugin ts file for the plugin <code class="language-plaintext highlighter-rouge">lg-autoplay.ts</code></li>
+  <li>Run <code class="language-plaintext highlighter-rouge">LG_PLUGINS=['autoplay'] npm start</code> to start the build process in watch
+mode</li>
+  <li>Navigate to <code class="language-plaintext highlighter-rouge">site/</code> folder and run npm run start to see the preview
+<code class="language-plaintext highlighter-rouge">cd site &amp;&amp; npm run start</code></li>
+  <li>You might need to include the compiled JavaScript and CSS files in
+the<code class="language-plaintext highlighter-rouge">site/layouts/partials/footer/script-footer.html</code> and
+<code class="language-plaintext highlighter-rouge">site/layouts/partials/head/stylesheet.html</code> respectively</li>
+</ul>
+
+<h2 id="plugin-structure">Plugin structure</h2>
+
+<p>Plugins have access to the current lightGallery instance. Also, it provide a
+utility for DOM manipulation. For examples, you can take a look at the existing
+plugin’s
+<a href="https://github.com/sachinchoolur/lightGallery/tree/master/src/plugins">source code</a>
+You can find the basic structure of lightGallery plugins below</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Dom manipulation utility module from lightGallery</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">LgQuery</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../lgQuery</span><span class="dl">'</span><span class="p">;</span>
+<span class="c1">// lightGallery core</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">LightGallery</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../lightgallery</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AutoplaySettings</span><span class="p">,</span> <span class="nx">autoplaySettings</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./lg-medium-zoom-settings</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nc">MediumZoom</span> <span class="p">{</span>
+    <span class="nl">core</span><span class="p">:</span> <span class="nx">LightGallery</span><span class="p">;</span>
+    <span class="nl">settings</span><span class="p">:</span> <span class="nx">AutoplaySettings</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nx">$LG</span><span class="o">!</span><span class="p">:</span> <span class="nx">LgQuery</span><span class="p">;</span>
+    <span class="nf">constructor</span><span class="p">(</span><span class="nx">instance</span><span class="p">:</span> <span class="nx">LightGallery</span><span class="p">,</span> <span class="nx">$LG</span><span class="p">:</span> <span class="nx">LgQuery</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// get lightGallery core plugin instance</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">core</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">;</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">$LG</span> <span class="o">=</span> <span class="nx">$LG</span><span class="p">;</span>
+
+        <span class="c1">// extend module default settings with lightGallery core settings</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">autoplaySettings</span><span class="p">,</span> <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">core</span><span class="p">.</span><span class="nx">settings</span> <span class="p">};</span>
+
+        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Do not call init function in constructor</span>
+    <span class="c1">// lightGallery will automatically call init at the right time</span>
+    <span class="nf">init</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="k">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">autoplay</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Write your awesome stuff</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Cleanup plugin</span>
+    <span class="nf">destroy</span><span class="p">():</span> <span class="k">void</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>

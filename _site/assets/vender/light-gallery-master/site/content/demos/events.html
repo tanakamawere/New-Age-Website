@@ -1,0 +1,40 @@
+<p>Let’s see how we can change the background color of the gallery on every slide
+change.</p>
+
+<h4 id="demo">Demo</h4>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"custom-events-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">colours</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">#6a7583</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#1e304b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#315460</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">#080607</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">galleryEventsDemo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">custom-events-demo</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">galleryEventsDemo</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">lgBeforeSlide</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">index</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.lg-backdrop</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span>
+        <span class="nx">colours</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+<span class="p">});</span>
+<span class="nf">lightGallery</span><span class="p">(</span><span class="nx">galleryEventsDemo</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">addClass</span><span class="p">:</span> <span class="dl">'</span><span class="s1">lg-events-demo-outer</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// (Optional)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h5 id="scss-optional">SCSS (Optional)</h5>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.lg-events-demo-outer</span> <span class="p">{</span>
+    <span class="nc">.lg-backdrop</span> <span class="p">{</span>
+        <span class="nl">transition</span><span class="p">:</span> <span class="n">opacity</span> <span class="m">333ms</span> <span class="n">ease-in</span> <span class="m">0s</span><span class="o">,</span> <span class="n">background-color</span> <span class="m">333ms</span> <span class="n">ease-in</span> <span class="m">0s</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>

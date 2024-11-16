@@ -1,0 +1,197 @@
+<p><a class="btn btn-outline-primary" href="https://stackblitz.com/edit/lightgallery-react" target="_blank">StackBlitz
+Demo</a></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Follow the below steps to use lightGallery react component in your application.
+React component is part of the main lightGallery package on NPM. You can import
+it using the following way</p>
+
+<ul>
+  <li>
+    <p>Install lightGallery via NPM</p>
+
+    <p>npm install lightgallery</p>
+  </li>
+  <li>
+    <p>Import react component and styles</p>
+  </li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">LightGallery</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// import styles</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">lightgallery/css/lightgallery.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">lightgallery/css/lg-zoom.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">lightgallery/css/lg-thumbnail.css</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// If you want you can use SCSS instead of css</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">lightgallery/scss/lightgallery.scss</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">lightgallery/scss/lg-zoom.scss</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// import plugins if you need</span>
+<span class="k">import</span> <span class="nx">lgThumbnail</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/plugins/thumbnail</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">lgZoom</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">lightgallery/plugins/zoom</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">Gallery</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">onInit</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">lightGallery has been initialized</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"App"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nc">LightGallery</span>
+                <span class="na">onInit</span><span class="p">=</span><span class="si">{</span><span class="nx">onInit</span><span class="si">}</span>
+                <span class="na">speed</span><span class="p">=</span><span class="si">{</span><span class="mi">500</span><span class="si">}</span>
+                <span class="na">plugins</span><span class="p">=</span><span class="si">{</span><span class="p">[</span><span class="nx">lgThumbnail</span><span class="p">,</span> <span class="nx">lgZoom</span><span class="p">]</span><span class="si">}</span>
+            <span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="p">=</span><span class="s">"img/img1.jpg"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="p">=</span><span class="s">"img1"</span> <span class="na">src</span><span class="p">=</span><span class="s">"img/thumb1.jpg"</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="p">=</span><span class="s">"img/img2.jpg"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="p">=</span><span class="s">"img2"</span> <span class="na">src</span><span class="p">=</span><span class="s">"img/thumb2.jpg"</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                ...
+            <span class="p">&lt;/</span><span class="nc">LightGallery</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="props-and-methods">Props and methods</h2>
+
+<p>All lightGallery settings can be passed to react component as props.
+Additionally, you can use lifecycle hook methods listed below to hook into
+lightGalley component lifecycle. Almost every method passes a detail object
+which holds useful plugin data. Also, you can pass additional classnames to the
+lightGallery react wrapper element via <code class="language-plaintext highlighter-rouge">elementClassNames</code> prop</p>
+
+<h4 id="usage-example">usage example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Gallery</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">onBeforeSlide</span> <span class="o">=</span> <span class="p">(</span><span class="nx">detail</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">{</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">detail</span><span class="p">;</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">App</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">LightGallery</span>
+                <span class="nx">elementClassNames</span><span class="o">=</span><span class="dl">"</span><span class="s2">custom-wrapper-class</span><span class="dl">"</span>
+                <span class="nx">onBeforeSlide</span><span class="o">=</span><span class="p">{</span><span class="nx">onBeforeSlide</span><span class="p">}</span>
+            <span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">img/img1.jpg</span><span class="dl">"</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">alt</span><span class="o">=</span><span class="dl">"</span><span class="s2">img1</span><span class="dl">"</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">img/thumb1.jpg</span><span class="dl">"</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>                <span class="p">...</span>
+            <span class="o">&lt;</span><span class="sr">/LightGallery</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="event-docs-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+<h2 id="updating-slides">Updating slides</h2>
+
+<p>lightGallery does not update slides automatically due to performance reasons.
+But you can easily update slides whenever needed by calling <code class="language-plaintext highlighter-rouge">refresh</code> method.</p>
+
+<p><a class="btn btn-outline-primary" href="https://stackblitz.com/edit/lightgallery-react-update-slides" target="_blank">StackBlitz
+Demo</a></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">lightGallery</span> <span class="o">=</span> <span class="nx">useRef</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">items</span><span class="p">,</span> <span class="nx">setItems</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">([</span>
+        <span class="p">{</span>
+            <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-1.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-1.jpg</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-2.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-2.jpg</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">]);</span>
+
+    <span class="kd">const</span> <span class="nx">addItem</span> <span class="o">=</span> <span class="nf">useCallback</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">setItems</span><span class="p">([</span>
+            <span class="p">...</span><span class="nx">items</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-5.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-5.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">6</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">size</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1400-800</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img-6.jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumb-6.jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">]);</span>
+    <span class="p">},</span> <span class="p">[]);</span>
+
+    <span class="kd">const</span> <span class="nx">onInit</span> <span class="o">=</span> <span class="nf">useCallback</span><span class="p">((</span><span class="nx">detail</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if </span><span class="p">(</span><span class="nx">detail</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">lightGallery</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">detail</span><span class="p">.</span><span class="nx">instance</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">},</span> <span class="p">[]);</span>
+
+    <span class="kd">const</span> <span class="nx">getItems</span> <span class="o">=</span> <span class="nf">useCallback</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">items</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">return </span><span class="p">(</span>
+                <span class="p">&lt;</span><span class="nt">div</span>
+                    <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span>
+                    <span class="na">data-lg-size</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">size</span><span class="si">}</span>
+                    <span class="na">className</span><span class="p">=</span><span class="s">"gallery-item"</span>
+                    <span class="na">data-src</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">src</span><span class="si">}</span>
+                <span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">className</span><span class="p">=</span><span class="s">"img-responsive"</span> <span class="na">src</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">thumb</span><span class="si">}</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">},</span> <span class="p">[</span><span class="nx">items</span><span class="p">]);</span>
+
+    <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">lightGallery</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nf">refresh</span><span class="p">();</span>
+    <span class="p">},</span> <span class="p">[</span><span class="nx">items</span><span class="p">]);</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="s">"App"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">addItem</span><span class="si">}</span><span class="p">&gt;</span>Add new item<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nc">LightGallery</span>
+                <span class="na">plugins</span><span class="p">=</span><span class="si">{</span><span class="p">[</span><span class="nx">lgZoom</span><span class="p">]</span><span class="si">}</span>
+                <span class="na">elementClassNames</span><span class="p">=</span><span class="s">"custom-class-name"</span>
+                <span class="na">onInit</span><span class="p">=</span><span class="si">{</span><span class="nx">onInit</span><span class="si">}</span>
+            <span class="p">&gt;</span>
+                <span class="si">{</span><span class="nf">getItems</span><span class="p">()</span><span class="si">}</span>
+            <span class="p">&lt;/</span><span class="nc">LightGallery</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>

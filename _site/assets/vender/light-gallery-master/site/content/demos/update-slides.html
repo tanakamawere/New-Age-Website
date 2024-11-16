@@ -1,0 +1,110 @@
+<p>Let’s see how we can add and delete slides dynamically.</p>
+
+<p>In this demo, we’ll be using some of the lightGallery jQuery like utilities for
+dom manipulations such as <code class="language-plaintext highlighter-rouge">append</code>, <code class="language-plaintext highlighter-rouge">find</code> or <code class="language-plaintext highlighter-rouge">on</code>. <a href="../../docs/lg-query/">Docs</a></p>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery-update-slides-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>First, we need to add delete and add buttons into the gallery toolbar.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">$lgDemoUpdateSlides</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">gallery-update-slides-demo</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="c1">// make use on lightGallery init event to add custom buttons into the toolbar</span>
+<span class="nx">$lgDemoUpdateSlides</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">lgInit</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">updateSlideInstance</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">instance</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">addBtn</span> <span class="o">=</span>
+        <span class="dl">'</span><span class="s1">&lt;button type="button" aria-label="Add slide" class="lg-icon" id="lg-add"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">deleteBtn</span> <span class="o">=</span>
+        <span class="dl">'</span><span class="s1">&lt;button type="button" aria-label="Remove slide" class="lg-icon" id="lg-delete"&gt; &lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;</span><span class="dl">'</span><span class="p">;</span>
+
+    <span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nx">outer</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="dl">'</span><span class="s1">.lg-toolbar</span><span class="dl">'</span><span class="p">).</span><span class="nf">append</span><span class="p">(</span><span class="nx">deleteBtn</span><span class="p">);</span>
+    <span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nx">outer</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="dl">'</span><span class="s1">.lg-toolbar</span><span class="dl">'</span><span class="p">).</span><span class="nf">append</span><span class="p">(</span><span class="nx">addBtn</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Initialize lightGallery</span>
+<span class="nx">updateSlideInstance</span> <span class="o">=</span> <span class="nf">lightGallery</span><span class="p">(</span><span class="nx">$lgDemoUpdateSlides</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">addClass</span><span class="p">:</span> <span class="dl">'</span><span class="s1">lg-update-slide-demo</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Delete the first slide on clicking on the delete button</p>
+
+<p>Note :</p>
+
+<ul>
+  <li>Do not mutate existing lightGallery items directly.</li>
+  <li>Always pass new list of gallery items</li>
+  <li>You need to take care of thumbnails outside the gallery if any You can use
+refresh() method to update lightGallery after updating thumbnails -
+<a href="../../docs/methods/#refresh">Docs</a> -
+<a href="../../demos/infinite-scrolling/">Demo</a></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nx">outer</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="dl">'</span><span class="s1">#lg-delete</span><span class="dl">'</span><span class="p">).</span><span class="nf">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">galleryItems</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span>
+        <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nx">galleryItems</span><span class="p">),</span>
+    <span class="p">);</span>
+
+    <span class="c1">// Delete first item</span>
+    <span class="nx">galleryItems</span><span class="p">.</span><span class="nf">shift</span><span class="p">();</span>
+
+    <span class="c1">// Pass the modified gallery items via updateSlides method</span>
+    <span class="c1">// the second parameter is the index of the slide</span>
+    <span class="c1">// to determine which slide lightGallery should navigate to after deleting current items</span>
+    <span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nf">updateSlides</span><span class="p">(</span><span class="nx">galleryItems</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="kd">let</span> <span class="nx">slidesUpdated</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Add a new slide on clicking on the add button</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nx">outer</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="dl">'</span><span class="s1">#lg-add</span><span class="dl">'</span><span class="p">).</span><span class="nf">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">galleryItems</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">...</span><span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nx">galleryItems</span><span class="p">,</span>
+        <span class="p">...[</span>
+            <span class="p">{</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/img.1jpg</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">thumb</span><span class="p">:</span> <span class="dl">'</span><span class="s1">img/thumb.1jpg</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// instead of first slide, this time lets persist the current index</span>
+    <span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nf">updateSlides</span><span class="p">(</span><span class="nx">galleryItems</span><span class="p">,</span> <span class="nx">updateSlideInstance</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h5 id="scss-optional">SCSS (Optional)</h5>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.lg-update-slide-demo</span> <span class="p">{</span>
+    <span class="nc">.lg-toolbar</span> <span class="p">{</span>
+        <span class="nc">.lg-icon</span> <span class="p">{</span>
+            <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+            <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+            <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">svg</span> <span class="p">{</span>
+            <span class="na">fill</span><span class="p">:</span> <span class="mh">#999</span><span class="p">;</span>
+            <span class="nl">width</span><span class="p">:</span> <span class="m">22px</span><span class="p">;</span>
+            <span class="nl">height</span><span class="p">:</span> <span class="m">22px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="demo">Demo</h4>
+

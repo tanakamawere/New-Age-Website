@@ -1,0 +1,30 @@
+<h2 id="access-plugin-instance">Access plugin instance</h2>
+
+<p>lightGallery plugin instance can be accessed in two ways, through the
+lightGallery function and through the lightGallery custom <code class="language-plaintext highlighter-rouge">init</code> event.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">lg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">lg-method-demo</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Get the plugin instance through the lightGallery main function</span>
+<span class="kd">const</span> <span class="nx">plugin</span> <span class="o">=</span> <span class="nf">lightGallery</span><span class="p">(</span><span class="nx">lg</span><span class="p">);</span>
+
+<span class="c1">// or get thought init event</span>
+<span class="c1">// let plugin = null;</span>
+<span class="c1">// lg.addEventListener('lgInit', (event) =&gt; {</span>
+<span class="c1">//   plugin = event.detail.instance;</span>
+<span class="c1">// });</span>
+
+<span class="c1">// Go to third slide</span>
+<span class="c1">// Index starts from 0</span>
+<span class="nx">plugin</span><span class="p">.</span><span class="nf">slide</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="available-public-methods">Available public methods</h2>
+
+<p>Here you can find the list of available public methods. Not all methods are
+exposed, please open an issue if you think you need access to more public
+methods.</p>
+
+<div class="docs-methods-list">
+    
+</div>

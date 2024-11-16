@@ -1,0 +1,203 @@
+/*
+Template Name: Carx | Car Service & Auto Repair, Electric Car & EV Website Template
+Author: Pillarix
+Author URI: https://wrapbootstrap.com/user/pillarix
+Version: 1.0
+*/
+/*
+-- Body
+-- Custom Css
+-- Homepage
+-- Sidebar-Nav
+-- Homepage
+-- Services
+-- About
+-- Contact
+-- Mobile Media
+*/
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap');
+
+/* Body */
+body {
+	font-family: 'Manrope', sans-serif;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Syne', sans-serif;
+}
+a {
+	text-decoration: none;
+	color: #1b1b1b;
+}
+a:hover {
+	color: #145AE2;
+}
+
+/* Custom Css */
+.btn-primary {
+	background: hsla(8, 85%, 49%, 1);
+	background: linear-gradient(360deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	background: -moz-linear-gradient(360deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	background: -webkit-linear-gradient(360deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E72E13", endColorstr="#E21524", GradientType=1 );
+	border-color: #E72E13 !important;
+	color: #fff;
+}
+.btn-primary:hover {
+	background: hsla(8, 85%, 49%, 1);
+	background: linear-gradient(0deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	background: -moz-linear-gradient(0deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	background: -webkit-linear-gradient(0deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E72E13", endColorstr="#E21524", GradientType=1 );
+	border-color: #E72E13 !important;
+	color: #fff;
+}
+.btn-outline-primary {
+	border-color: #E72E13 !important;
+	color: #E72E13;
+}
+.btn-outline-primary:hover {
+	background-color: #E72E13 !important;
+	border-color: #E72E13 !important;
+	color: #fff;
+}
+.text-primary {
+	color: #E72E13 !important;
+}
+.bg-primary {
+	background: hsla(8, 85%, 49%, 1);
+	background: linear-gradient(360deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	background: -moz-linear-gradient(360deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	background: -webkit-linear-gradient(360deg, hsla(8, 85%, 49%, 1) 0%, hsla(356, 83%, 48%, 1) 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E72E13", endColorstr="#E21524", GradientType=1 );
+}
+.link-primary {
+	color: #E72E13!important;
+}
+.car-serive-nav  a.nav-link {
+	padding-top: 28px !important;
+	padding-bottom: 28px !important;
+	color: #ffffff !important;
+}
+
+/* Homepage */
+.bg-homepage {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://images.unsplash.com/photo-1658244535504-ee14cb8425a1?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-primary {
+	background-color: #145AE2 !important;
+}
+.mt-n6 {
+	margin-top: -6rem;
+}
+.mt-n10 {
+	margin-top: -10rem;
+}
+.mb-n10 {
+	margin-bottom: -10rem;
+}
+
+/* Sidebar-Nav */
+.sidebar-nav .navbar-nav .nav-link {
+	font-size: 20px;
+	font-weight: 500;
+}
+.sidebar-nav .navbar-nav .nav-link.active,
+.sidebar-nav .navbar-nav .nav-link:hover {
+	color: #145AE2;
+}
+
+/* Homepage */
+.bg-inspection {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://freepngimg.com/thumb/audi/58-audi-png-car-image.png);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.profile-img {
+	width: 6rem;
+}
+.bg-inspection-two {
+	background-image: url(https://th.bing.com/th/id/R.8e46802eea5cf2430da6ea112295bdf9?rik=o%2fvdc9nr3aRfJQ&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-ferrari-sergio-red-carcarferrarivehicletransport-961524641489kjskx.png&ehk=5eqIP9E8hiVIdP%2bV6XzRkwNRiO6QlQ%2fxdJluwaP8t48%3d&risl=&pid=ImgRaw&r=0);
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.service-icon {
+	width: 90px;
+	height: 90px;
+}
+.book-appointment {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/book-appointment.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.bg-faq {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://iamosahan.com/wrapbootstrap-pillarix/carx/img/faq.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.latest-news {
+	margin-top: -228px;
+}
+
+/* Services */
+.all-services {
+	margin-top: -342px;
+}
+.testimonial-img {
+	width: 60px;
+}
+.icon-sm {
+	height: 35px;
+	width: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* About */
+.our-team {
+	margin-top: -228px;
+}
+.about-video {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/video.jpeg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* Contact */
+.location {
+	margin-top: -396px;
+}
+
+/* Mobile Media  */
+@media (max-width:992px) {
+	.m-none {
+		display: none;
+	}
+	.bg-inspection-two {
+		background-image: none;
+	}
+	.all-services {
+		margin-top: -254px;
+	}
+}

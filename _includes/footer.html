@@ -1,0 +1,64 @@
+<footer>
+    <div class="footer-top bg-black py-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-2 col-md-6 col-6" data-aos="fade-up" data-aos-duration="600">
+                    <h5 class="fw-bold pb-3 text-white">Company</h5>
+                    <ul class="list-unstyled d-grid gap-2">
+                        <li><a href="index.html" class="link-secondary">Home</a></li>
+                        <li><a href="/services.html" class="link-secondary">Services</a></li>
+                        <li><a href="/about.html" class="link-secondary">About us</a></li>
+                        <li><a href="/contact.html" class="link-secondary">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6" data-aos="fade-up" data-aos-duration="700">
+                    <h5 class="fw-bold pb-3 text-white">Services</h5>
+                    <ul class="list-unstyled d-grid gap-2">
+                        <li><a href="{{ site.social.whatsapp }}" class="link-secondary">Engine/Repair</a></li>
+                        <li><a href="{{ site.social.whatsapp }}" class="link-secondary">Tire Inspection</a></li>
+                        <li><a href="{{ site.social.whatsapp }}" class="link-secondary">Transmission</a></li>
+                        <li><a href="{{ site.social.whatsapp }}" class="link-secondary">Car Painting</a></li>
+                        <li><a href="{{ site.social.whatsapp }}" class="link-secondary">Car Diagnostic</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="800">
+                    <h5 class="fw-bold pb-3 text-white">Contact us</h5>
+                    <div class="mb-3">
+                        <p class="text-secondary-emphasis mb-0">Phone: {{ site.phone }}</p>
+                    </div>
+                    <p class="text-secondary-emphasis mb-3">Mail: {{ site.email }}</p>
+                    <p class="text-secondary-emphasis mb-0">{{ site.address }}</p>
+                </div>
+                <div class="col-lg-4 col-12 offset-lg-1" data-aos="fade-up" data-aos-duration="900">
+                    <div class="position-relative d-flex align-items-center gap-2 site-brand mb-3">
+                        <i class="ri-car-line fs-2 lh-1 text-primary"></i>
+                        <div class="lh-1">
+                            <h5 class="fw-bold m-0 text-white">{{ site.title }}</h5>
+                            <small class="text-white-50">{{ site.subtitle }}</small>
+                        </div>
+                        <a class="stretched-link" href="index.html"></a>
+                    </div>
+                    <p class="text-secondary-emphasis">At our car repair center, we provide top-notch services to ensure your vehicle runs smoothly and efficiently. Our experienced technicians are dedicated to delivering quality repairs and maintenance.</p>
+                    <p class="text-secondary-emphasis">Whether you need routine maintenance or complex repairs, we have the expertise and equipment to get the job done right. Trust us to keep your car in excellent condition.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-end -->
+    <div class="footer-end py-5 bg-dark">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto">
+                    <p class="text-center m-0 text-white-50">Copyright © <a href="#" class="text-white">{{site.title}}</a> 2025</p>
+                </div>
+                <div class="col-auto">
+                    <div class="d-flex aling-items-center gap-4">
+                        <a class="text-white" href="{{ site.social.facebook }}"><i class="ri-facebook-circle-fill ri-lg"></i></a> 
+                        <a class="text-white" href="{{ site.social.instagram }}"><i class="ri-instagram-fill ri-lg"></i></a> 
+                        <a class="text-white" href="{{ site.social.whatsapp }}"><i class="ri-whatsapp-fill ri-lg"></i></a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

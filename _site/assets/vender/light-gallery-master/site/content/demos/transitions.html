@@ -1,0 +1,127 @@
+<h4 id="demo">Demo</h4>
+
+<div class="alert alert-warning" role="alert">
+    Note: You need to include the <a href="https://github.com/sachinchoolur/lightGallery/blob/master/dist/css/lg-transitions.css
+">lg-transitions.css</a> file in your document to enable custom transitions
+</div>
+
+<div class="choose-select-option-wrap">
+<span class="choose-select-option">Change transition : </span>
+<select id="select-trans" class="mrb30 select">
+
+<option selected="selected" value="lg-slide">lg-slide</option>
+<option value="lg-fade">lg-fade</option>
+<option value="lg-zoom-in">lg-zoom-in</option>
+<option value="lg-zoom-in-big">lg-zoom-in-big</option>
+<option value="lg-zoom-out">lg-zoom-out</option>
+<option value="lg-zoom-out-big">lg-zoom-out-big</option>
+<option value="lg-zoom-out-in">lg-zoom-out-in</option>
+<option value="lg-zoom-in-out">lg-zoom-in-out</option>
+<option value="lg-soft-zoom">lg-soft-zoom</option>
+<option value="lg-scale-up">lg-scale-up</option>
+<option value="lg-slide-circular">lg-slide-circular</option>
+<option value="lg-slide-circular-vertical">lg-slide-circular-vertical</option>
+<option value="lg-slide-vertical">lg-slide-vertical</option>
+<option value="lg-slide-vertical-growth">lg-slide-vertical-growth</option>
+<option value="lg-slide-skew-only">lg-slide-skew-only</option>
+<option value="lg-slide-skew-only-rev">lg-slide-skew-only-rev</option>
+<option value="lg-slide-skew-only-y">lg-slide-skew-only-y</option>
+<option value="lg-slide-skew-only-y-rev">lg-slide-skew-only-y-rev</option>
+<option value="lg-slide-skew">lg-slide-skew</option>
+<option value="lg-slide-skew-rev">lg-slide-skew-rev</option>
+<option value="lg-slide-skew-cross">lg-slide-skew-cross</option>
+<option value="lg-slide-skew-cross-rev">lg-slide-skew-cross-rev</option>
+<option value="lg-slide-skew-ver">lg-slide-skew-ver</option>
+<option value="lg-slide-skew-ver-rev">lg-slide-skew-ver-rev</option>
+<option value="lg-slide-skew-ver-cross">lg-slide-skew-ver-cross</option>
+<option value="lg-slide-skew-ver-cross-rev">lg-slide-skew-ver-cross-rev</option>
+<option value="lg-lollipop">lg-lollipop</option>
+<option value="lg-lollipop-rev">lg-lollipop-rev</option>
+<option value="lg-rotate">lg-rotate</option>
+<option value="lg-rotate-rev">lg-rotate-rev</option>
+<option value="lg-tube">lg-tube</option> </select>
+</div>
+
+<h5 id="html-structure">HTML Structure</h5>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"custom-transition-demo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h5 id="javascript">JavaScript</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">lightGallery</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">custom-transition-demo</span><span class="dl">'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">lg-fade</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="create-custom-transition">Create custom transition</h3>
+
+<p>lightGallery comes with more than 30 transitions effects. If you need more, you
+can easily create your own custom transitions.</p>
+
+<p>Let’s see how we can create custom transition effects. Before that we need to
+understand how transition works in lightGallery. Transitions happen based on 3
+CSS class names. <code class="language-plaintext highlighter-rouge">lg-prev-slide</code>, <code class="language-plaintext highlighter-rouge">lg-current</code> and <code class="language-plaintext highlighter-rouge">lg-next-slide</code> When user
+tries to navigate a different slide, lightGallery</p>
+
+<ul>
+  <li>Removes all CSS transition effects from the slides.</li>
+  <li>Remove existing <code class="language-plaintext highlighter-rouge">lg-prev-slide</code> and <code class="language-plaintext highlighter-rouge">lg-next-slide</code> classes from the current
+slide.</li>
+  <li>Based on the direction, adds <code class="language-plaintext highlighter-rouge">lg-next-slide</code> or <code class="language-plaintext highlighter-rouge">lg-prev-slide</code> to the
+current slide and next slide to determine how the current slide should
+disappear and the next slide should appear. If direction is <code class="language-plaintext highlighter-rouge">previous</code>,
+<code class="language-plaintext highlighter-rouge">lg-prev-slide</code> is added to the current slide and <code class="language-plaintext highlighter-rouge">lg-next-slide</code> is added
+to the next slide. likewise If direction is <code class="language-plaintext highlighter-rouge">next</code>, <code class="language-plaintext highlighter-rouge">lg-next-slide</code> is added
+to the current slide and <code class="language-plaintext highlighter-rouge">lg-prev-slide</code> is added to the next slide.</li>
+  <li>50 ms timer starts to give some time for the browser to perform transitions.</li>
+  <li>After 50 ms, remove <code class="language-plaintext highlighter-rouge">lg-current</code> class from the current slide.</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">lg-current</code> class to the next slide.</li>
+  <li>Restore the CSS transitions.</li>
+</ul>
+
+<p>Let’s create a custom zoom-in-out transition.</p>
+
+<p>When user navigates to next slide, zoom in transition appears and when user
+navigates to the previous slide, zoom out transition appears.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.lg-zoom-in-out</span> <span class="p">{</span>
+    <span class="err">.lg-item</span> <span class="err">{</span>
+        <span class="err">//</span> <span class="err">By</span> <span class="err">default</span> <span class="err">all</span> <span class="err">slides</span> <span class="err">should</span> <span class="err">be</span> <span class="err">hidden</span>
+        <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="py">will-change</span><span class="p">:</span> <span class="n">transform</span><span class="p">,</span> <span class="n">opacity</span><span class="p">;</span>
+
+        <span class="err">//</span> <span class="err">For</span> <span class="err">the</span> <span class="err">zoom</span> <span class="err">in</span> <span class="err">transition,</span> <span class="err">set</span> <span class="err">scale3d</span> <span class="err">to</span> <span class="err">2</span>
+        <span class="err">&amp;.lg-prev-slide</span> <span class="err">{</span>
+            <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="o">//</span> <span class="nt">For</span> <span class="nt">the</span> <span class="nt">zoom</span> <span class="nt">out</span> <span class="nt">transition</span><span class="o">,</span> <span class="nt">set</span> <span class="nt">scale3d</span> <span class="nt">to</span> <span class="err">0</span>
+        <span class="o">&amp;</span><span class="nc">.lg-next-slide</span> <span class="p">{</span>
+            <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="o">//</span> <span class="nt">Reset</span> <span class="nt">opacity</span> <span class="nt">and</span> <span class="nt">transition</span>
+        <span class="o">&amp;</span><span class="nc">.lg-current</span> <span class="p">{</span>
+            <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+            <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="o">//</span> <span class="nt">Add</span> <span class="nt">CSS</span> <span class="nt">transition</span> <span class="nt">for</span> <span class="nt">opacity</span> <span class="nt">and</span> <span class="nt">transform</span>
+        <span class="o">&amp;</span><span class="nc">.lg-prev-slide</span><span class="o">,</span>
+        <span class="o">&amp;</span><span class="nc">.lg-next-slide</span><span class="o">,</span>
+        <span class="o">&amp;</span><span class="nc">.lg-current</span> <span class="p">{</span>
+            <span class="nl">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="m">1s</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.25</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="m">0s</span><span class="p">,</span> <span class="n">opacity</span> <span class="m">1s</span>
+                    <span class="n">ease</span> <span class="m">0s</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div></div>

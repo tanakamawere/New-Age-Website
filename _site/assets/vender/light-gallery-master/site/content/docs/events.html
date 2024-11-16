@@ -1,0 +1,53 @@
+<h2 id="usage-example">Usage example</h2>
+
+<p>lightGallery custom events can be attached to the HTML element that you are
+using to initialize the gallery. Every custom event holds useful plugin data
+that can be used to control or customize lightGallery. Make sure that you attach
+event listeners before initializing lightGallery</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">lg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">custom-events-demo</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Perform any action just before opening the gallery</span>
+<span class="nx">lg</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">lgBeforeOpen</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">onBeforeOpen</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// custom event with useful plugin data</span>
+<span class="nx">lg</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">lgBeforeSlide</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">{</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">;</span>
+    <span class="nf">alert</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">prevIndex</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nf">lightGallery</span><span class="p">(</span><span class="nx">lg</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="available-custom-events">Available custom events</h2>
+
+<p>Here you can find the list of available custom events. Most of the events
+provide useful lightGallery data via the event detail object. The table in each
+event section represents the event detail object.</p>
+
+<div class="event-docs-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>

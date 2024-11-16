@@ -1,0 +1,103 @@
+<h3 id="html-structure">HTML Structure</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"infinite-scroll-gallery"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img1.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb1.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"img/img2.jpg"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/thumb2.jpg"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h3 id="javascript">Javascript</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">$infiniteScrollGallery</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">infinite-scroll-gallery</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="kd">const</span> <span class="nx">lg</span> <span class="o">=</span> <span class="nf">lightGallery</span><span class="p">(</span><span class="nx">$infiniteScrollGallery</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">speed</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Since, we are already using jQuery on this website, let’s make use of jQuery to
+find out when user scrolls till the bottom of the page. Or if you prefer, you
+can use any of the JavaScript infinite scrolling plugin.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">$window</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
+<span class="nx">$window</span><span class="p">.</span><span class="nf">scroll</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">$window</span><span class="p">.</span><span class="nf">scrollTop</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="nf">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nf">height</span><span class="p">()</span> <span class="o">-</span> <span class="nx">$window</span><span class="p">.</span><span class="nf">height</span><span class="p">()</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// User scrolled till the bottom the page</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Then, append thumbnails to the existing gallery.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">thumbnails</span> <span class="o">=</span> <span class="s2">`
+    &lt;a href="img/img1.jpg"&gt;
+        &lt;img src="img/thumb1.jpg" /&gt;
+    &lt;/a&gt;
+    &lt;a href="img/img2.jpg"&gt;
+        &lt;img src="img/thumb2.jpg" /&gt;
+    &lt;/a&gt;
+    `</span><span class="p">;</span>
+<span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#infinite-scroll-gallery</span><span class="dl">'</span><span class="p">).</span><span class="nf">append</span><span class="p">(</span><span class="nx">thumbnails</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Finally, you need to destroy the current lightGallery instance and re-initiate
+lightGallery</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">lg</span><span class="p">.</span><span class="nf">destroy</span><span class="p">();</span>
+<span class="nf">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">lg</span> <span class="o">=</span> <span class="nf">lightGallery</span><span class="p">(</span><span class="nx">$infiniteScrollGallery</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">speed</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="p">});</span>
+<span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>That’s it. Here the full example</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">$infiniteScrollGallery</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">infinite-scroll-gallery</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="kd">let</span> <span class="nx">infiniteScrollingGallery</span> <span class="o">=</span> <span class="nf">lightGallery</span><span class="p">(</span><span class="nx">$infiniteScrollGallery</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">speed</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">thumbnails</span> <span class="o">=</span> <span class="s2">`
+    &lt;a href="img/img3.jpg"&gt;
+        &lt;img src="img/thumb3.jpg" /&gt;
+    &lt;/a&gt;
+    &lt;a href="img/img4.jpg"&gt;
+        &lt;img src="img/thumb4.jpg" /&gt;
+    &lt;/a&gt;
+    `</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">$window</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">shouldReInit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">$window</span><span class="p">.</span><span class="nf">scroll</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">$window</span><span class="p">.</span><span class="nf">scrollTop</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="nf">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nf">height</span><span class="p">()</span> <span class="o">-</span> <span class="nx">$window</span><span class="p">.</span><span class="nf">height</span><span class="p">()</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#infinite-scroll-gallery</span><span class="dl">'</span><span class="p">).</span><span class="nf">append</span><span class="p">(</span><span class="nx">images</span><span class="p">);</span>
+        <span class="nx">infiniteScrollingGallery</span><span class="p">.</span><span class="nf">refresh</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="infinite-scrolling">Infinite scrolling</h3>
+
+<div class="infinite-scroll-gallery" id="infinite-scroll-gallery">
+    <a data-lg-size="1600-1067" class="gallery-item" data-src="https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" data-sub-html="&lt;h4&gt;Photo by - &lt;a href='https://unsplash.com/@tobbes_rd' &gt;Tobias Rademacher &lt;/a&gt;&lt;/h4&gt;&lt;p&gt; Location - &lt;a href='https://unsplash.com/s/photos/puezgruppe%2C-wolkenstein-in-gr%C3%B6den%2C-s%C3%BCdtirol%2C-italien'&gt;Puezgruppe, Wolkenstein in Gröden, Südtirol, Italien&lt;/a&gt;layers of blue.&lt;/p&gt;">
+            <img alt="layers of blue." class="img-responsive" src="https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=240&amp;q=80" />
+        </a>
+        <a data-lg-size="1600-2400" data-pinterest-text="Pin it2" data-tweet-text="lightGallery slide  2" class="gallery-item" data-src="https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" data-sub-html="&lt;h4&gt;Photo by - &lt;a href='https://unsplash.com/@therawhunter' &gt;Massimiliano Morosinotto &lt;/a&gt;&lt;/h4&gt;&lt;p&gt; Location - &lt;a href='https://unsplash.com/s/photos/tre-cime-di-lavaredo%2C-italia'&gt;Tre Cime di Lavaredo, Italia&lt;/a&gt;This is the Way&lt;/p&gt;">
+            <img class="img-responsive" src="https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=240&amp;q=80" />
+        </a>
+        <a data-lg-size="1600-2400" data-pinterest-text="Pin it3" data-tweet-text="lightGallery slide  4" class="gallery-item" data-src="https://images.unsplash.com/photo-1605973029521-8154da591bd7?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" data-sub-html="&lt;h4&gt;Photo by - &lt;a href='https://unsplash.com/@thesaboo' &gt;Sascha Bosshard &lt;/a&gt;&lt;/h4&gt;&lt;p&gt; Location - &lt;a href='https://unsplash.com/s/photos/pizol%2C-mels%2C-schweiz'&gt;Pizol, Mels, Schweiz&lt;/a&gt;&lt;/p&gt;">
+            <img class="img-responsive" src="https://images.unsplash.com/photo-1605973029521-8154da591bd7?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=240&amp;q=80" />
+        </a>
+        <a data-lg-size="1600-2398" data-pinterest-text="Pin it3" data-tweet-text="lightGallery slide  4" class="gallery-item" data-src="https://images.unsplash.com/photo-1526281216101-e55f00f0db7a?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" data-sub-html="&lt;h4&gt;Photo by - &lt;a href='https://unsplash.com/@yusufevli' &gt;Yusuf Evli &lt;/a&gt;&lt;/h4&gt;&lt;p&gt; Foggy Road&lt;/p&gt;">
+            <img class="img-responsive" src="https://images.unsplash.com/photo-1526281216101-e55f00f0db7a?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=240&amp;q=80" />
+    </a>
+</div>
