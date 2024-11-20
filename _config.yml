@@ -1,14 +1,14 @@
 url: "https://newagemotors.co.zw" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-title: "New Age Motors"
+title: "New Age Motor Clinic"
 subtitle: "The future of motoring"
 description: "New Age Motors is a trusted Car Repair Centre offering reliable auto repair and maintenance services, from routine oil changes and brake repairs to advanced diagnostics and engine work. Our expert technicians ensure quality and customer satisfaction, giving you confidence on the road."
 author: "Tanaka Mawere"
 email: "contact@newagemotors.co.zw"
-phone: "+263 77 123 4567"
+phone: "+263 77 189 0416"
 address: "1234 New Age Street, Harare, Zimbabwe"
 social:
   twitter: "https://twitter.com/newagemotors"
   facebook: "https://facebook.com/newagemotors"
   instagram: "https://instagram.com/newagemotors"
-  whatsapp: "https://wa.me/263771234567"
+  whatsapp: "https://wa.me/263771890416"
